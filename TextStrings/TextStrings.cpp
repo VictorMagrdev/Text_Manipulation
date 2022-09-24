@@ -73,11 +73,42 @@ string VocalsU(string text) {
     return paragrahp;
 }
 
+string invert(string suma) {
+    int n = suma.size();
+    for (int i = 0; i < n / 2; i++) swap(suma[i], suma[n - i - 1]);
+    return suma;
+}
+
+string compare(string fstring, string sstring) {
+    string mayor;
+    if (fstring.size() > sstring.size()) {
+        mayor = fstring;
+    }
+    else {
+        mayor = sstring;
+    }
+    return mayor;
+}
+
 int main()
 {
-    string fstring = "hi i am victor how are you";
-    string sstring = "i am a genshin impact player and a junior developer of java";
-    cout << VocalsU(fstring)<<endl;
-    cout << LowerVocal(sstring);
+    char name[100] = { 0 };
+    string fstring;
+    string sstring;
+    cout << "digite una cadena de texto: " << endl;
+    cin.getline(name, 100);
+    fstring = name;
+    cout << "digite una cadena de texto: " << endl;
+    cin.getline(name, 100);
+    sstring = name;
+    string suma;
+    cout << "la cadena con mas caracteres es:" << compare(fstring, sstring) << endl;
+    fstring = VocalsU(fstring);
+    sstring = LowerVocal(sstring);
+    cout << fstring << endl;
+    cout << sstring << endl;
+    suma = fstring + " " + sstring;
+    cout << suma << endl;
+    cout << invert(suma);
     return 0;
 }
